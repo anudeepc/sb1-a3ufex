@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>My Receipts</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Merchant</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for receipt in receipts %}
+        <tr>
+            <td>{{ receipt.merchant }}</td>
+            <td>{{ receipt.date }}</td>
+            <td>${{ receipt.total }}</td>
+            <td>{{ receipt.category }}</td>
+            <td>
+                <a href="{{ url_for('receipts.edit_receipt', id=receipt.id) }}" class="btn btn-sm btn-primary">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('receipts.upload_receipt') }}" class="btn btn-success">Upload New Receipt</a>
+{% endblock %}

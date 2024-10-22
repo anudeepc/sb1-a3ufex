@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to Secure Receipt Organizer</h1>
+    <p class="lead">Easily manage and organize your receipts with Google Drive integration.</p>
+    <hr class="my-4">
+    <p>Get started by logging in with your Google account.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('auth.login') }}" role="button">Login with Google</a>
+</div>
+{% endblock %}
